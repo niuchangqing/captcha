@@ -3,7 +3,12 @@ captcha是一个图片验证码生成工具库,通过调用ImageCaptchaUtil中�
 ## 自定义实现干扰类型
 可通过继承AbstractDrawing类或实现IDrawing进行实现。继承AbstractDrawing只需要实现其中的绘制干扰线方法。实现IDrawing则需要手动实现所有的相关内容。
 ## 生成图片样例
-
+![Image](https://github.com/niuchangqing/captcha/blob/master/src/test/java/org/ncq/captcha/image/example1.png)
+![Image](https://github.com/niuchangqing/captcha/blob/master/src/test/java/org/ncq/captcha/image/example2.png)
+![Image](https://github.com/niuchangqing/captcha/blob/master/src/test/java/org/ncq/captcha/image/example3.png)
+![Image](https://github.com/niuchangqing/captcha/blob/master/src/test/java/org/ncq/captcha/image/example4.png)
+![Image](https://github.com/niuchangqing/captcha/blob/master/src/test/java/org/ncq/captcha/image/example5.png)
+![Image](https://github.com/niuchangqing/captcha/blob/master/src/test/java/org/ncq/captcha/image/example6.png)
 ## 使用例子
 ```java
 //静态图片,支持返回图片的base64,base64Data,byte[]
