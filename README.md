@@ -36,5 +36,5 @@ String gifImageBase64Data1 = ImageCaptchaUtil.getGifImageBase64Data(code,100,35,
 //其他更多参数,如字体，字体颜色,背景颜色，干扰线颜色等等详细参数请看ImageCaptchaUtil类中的具体方法;
 ```
 
-## 常用随机字符串随机数子和随机运算字符串
+## 常用随机字符串随机数字和随机运算字符串
 RandomUtil类中实现了常用随机字符串数字等相关方法,方便用户生成code字符串
