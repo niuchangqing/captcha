@@ -11,7 +11,7 @@ captcha是一个图片验证码生成工具库,通过调用ImageCaptchaUtil中�
 
 ![Image](https://github.com/niuchangqing/captcha/blob/master/sample/image/example9.png)&emsp;&emsp;&emsp;![Image](https://github.com/niuchangqing/captcha/blob/master/sample/image/example10.png)&emsp;&emsp;&emsp;![Image](https://github.com/niuchangqing/captcha/blob/master/sample/image/example11.png)
 
-![Image](https://github.com/niuchangqing/captcha/blob/master/sample/image/example12.png)&emsp;&emsp;&emsp;![Image](https://github.com/niuchangqing/captcha/blob/master/sample/image/eexample13.png)&emsp;&emsp;&emsp;![Image](https://github.com/niuchangqing/captcha/blob/master/sample/image/example14.png)
+![Image](https://github.com/niuchangqing/captcha/blob/master/sample/image/example12.png)&emsp;&emsp;&emsp;![Image](https://github.com/niuchangqing/captcha/blob/master/sample/image/example13.png)&emsp;&emsp;&emsp;![Image](https://github.com/niuchangqing/captcha/blob/master/sample/image/example14.png)
 ## 使用例子
 ```java
 //静态图片,支持返回图片的base64,base64Data,byte[]
