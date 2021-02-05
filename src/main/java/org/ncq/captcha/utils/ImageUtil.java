@@ -52,4 +52,21 @@ public class ImageUtil {
         ThreadLocalRandom random = RandomUtil.getRandom();
         return new Color(random.nextInt(RGB_COLOR_UPPER_LIMIT), random.nextInt(RGB_COLOR_UPPER_LIMIT), random.nextInt(RGB_COLOR_UPPER_LIMIT));
     }
+
+    /**
+     * 随机获取一个和指定颜色不同的颜色
+     * @param color                 可以为空
+     * @return
+     */
+    public static Color randomColor(Color color){
+        Color c = randomColor();
+        if (color == null) {
+            return c;
+        }
+        //和指定颜色相同,递归获取颜色
+        if (c.equals(color)) {
+            return randomColor(color);
+        }
+        return c;
+    }
 }

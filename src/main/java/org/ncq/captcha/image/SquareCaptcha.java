@@ -2,11 +2,8 @@ package org.ncq.captcha.image;
 
 import org.ncq.captcha.enums.Interference;
 import org.ncq.captcha.enums.InterferenceTypeEnum;
-import org.ncq.captcha.utils.ImageUtil;
-import org.ncq.captcha.utils.RandomUtil;
 
 import java.awt.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @Author niuchangqing
@@ -32,22 +29,7 @@ public class SquareCaptcha extends AbstractDrawing {
 
     @Override
     protected void drawInterference(Graphics2D graphics2D) {
-        ThreadLocalRandom random = RandomUtil.getRandom();
-        int x1 = random.nextInt(0, (int) (this.width * 0.1));
-        int y1 = random.nextInt(0, (int) (this.height * 0.1));
-        int x2 = random.nextInt((int) (this.width * 0.1), width);
-        int y2 = random.nextInt((int) (this.height * 0.1), height);
-        graphics2D.setColor(ImageUtil.randomColor());
-        int w = x2 - x1;
-        int h = y2 - y1;
-        if (w < 0) {
-            w = -w;
-        }
-        if (h < 0) {
-            h = -h;
-        }
-        graphics2D.setStroke(new BasicStroke(2.5F));
-        graphics2D.drawRect(x1, y1, w, h);
+        DrawInterferenceUtil.drawSquare(graphics2D,this.width, this.height, getInterferenceColorOrRandom());
     }
 
     @Override

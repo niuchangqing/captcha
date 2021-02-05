@@ -2,11 +2,8 @@ package org.ncq.captcha.image;
 
 import org.ncq.captcha.enums.Interference;
 import org.ncq.captcha.enums.InterferenceTypeEnum;
-import org.ncq.captcha.utils.ImageUtil;
-import org.ncq.captcha.utils.RandomUtil;
 
 import java.awt.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @Author niuchangqing
@@ -32,15 +29,7 @@ public class PointCaptcha extends AbstractDrawing {
 
     @Override
     protected void drawInterference(Graphics2D graphics2D) {
-        ThreadLocalRandom random = RandomUtil.getRandom();
-        int x = random.nextInt(this.width);
-        int y = random.nextInt(this.height);
-        if (this.interferenceColor == null) {
-            graphics2D.setColor(ImageUtil.randomColor());
-        }else {
-            graphics2D.setColor(this.interferenceColor);
-        }
-        graphics2D.drawOval(x,y,random.nextInt(4),random.nextInt(4));
+        DrawInterferenceUtil.drawPoint(graphics2D, this.width, this.height, getInterferenceColorOrRandom());
     }
 
     @Override

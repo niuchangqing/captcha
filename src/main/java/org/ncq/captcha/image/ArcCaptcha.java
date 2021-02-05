@@ -1,12 +1,10 @@
 package org.ncq.captcha.image;
 
-import org.ncq.captcha.enums.Interference;
 import org.ncq.captcha.enums.InterferenceTypeEnum;
 import org.ncq.captcha.utils.ImageUtil;
-import org.ncq.captcha.utils.RandomUtil;
 
 import java.awt.*;
-import java.util.concurrent.ThreadLocalRandom;
+
 
 /**
  * @Author niuchangqing
@@ -32,22 +30,11 @@ public class ArcCaptcha extends AbstractDrawing {
 
     @Override
     protected void drawInterference(Graphics2D graphics2D) {
-        final ThreadLocalRandom random = RandomUtil.getRandom();
-        if (this.interferenceColor == null) {
-            graphics2D.setColor(ImageUtil.randomColor());
-        }else {
-            graphics2D.setColor(this.interferenceColor);
-        }
-        int x = random.nextInt(width);
-        int y = random.nextInt(height);
-        int w = random.nextInt(width);
-        int h = random.nextInt(height);
-        graphics2D.setStroke(new BasicStroke(1.3F));
-        graphics2D.drawArc(x,y,w,h,random.nextInt(360),random.nextInt(360));
+        DrawInterferenceUtil.drawArc(graphics2D, this.width, this.height, getInterferenceColorOrRandom());
     }
 
     @Override
-    public boolean isSupport(Interference interference) {
+    public boolean isSupport(org.ncq.captcha.enums.Interference interference) {
         return interference.getType().equals(InterferenceTypeEnum.ARC.getType());
     }
 }

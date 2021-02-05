@@ -3,11 +3,13 @@ package org.ncq.captcha.image;
 import org.ncq.captcha.image.gif.AnimatedGifEncoder;
 import org.ncq.captcha.utils.GraphicsUtil;
 import org.ncq.captcha.utils.ImageUtil;
+import org.ncq.captcha.utils.RandomUtil;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.util.Base64;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @Author niuchangqing
@@ -74,9 +76,10 @@ public abstract class AbstractDrawing implements IDrawing {
         this.width = width < 10 ? 10 : width;
         this.height = height < 10 ? 10 : height;
         this.interferenceCount = interferenceCount;
-        this.font = font == null ? new Font("Fixedsys",Font.BOLD,(int) (this.height * 0.65)) : font;
+        this.font = font == null ? new Font("Arial",Font.BOLD,(int) (this.height * 0.65)) : font;
         this.fontColor = fontColor;
-        this.backgroundColor = backgroundColor;
+        //不指定背景颜色,背景颜色默认为白色
+        this.backgroundColor = backgroundColor == null ? Color.WHITE : backgroundColor;
         this.interferenceColor = interferenceColor;
         this.alphaComposite = alphaComposite;
     }
@@ -96,19 +99,26 @@ public abstract class AbstractDrawing implements IDrawing {
         //图片buffer
         BufferedImage image = new BufferedImage(this.width,this.height, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics2D = GraphicsUtil.createGraphics(image, this.backgroundColor);
+        //添加抗锯齿
+        graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        //设置透明度
+        GraphicsUtil.setAlphaComposite(graphics2D,this.alphaComposite);
+        //绘制字符串
+        GraphicsUtil.drawStr(graphics2D,code, this.font, this.fontColor, this.width, this.height,this.backgroundColor);
         //添加干扰线
         if (this.interferenceCount > 0) {
             for (int i = 0; i < this.interferenceCount; i++) {
                 drawInterference(graphics2D);
             }
         }
-        //设置透明度
-        GraphicsUtil.setAlphaComposite(graphics2D,this.alphaComposite);
-        //绘制字符串
-        GraphicsUtil.drawStr(graphics2D,code, this.font, this.fontColor, this.width, this.height);
         return image;
     }
 
+    /**
+     * 生成动态图片
+     * @param code              图片验证码
+     * @return
+     */
     protected byte[] createGifImage(String code){
         // gif编码类
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -124,7 +134,8 @@ public abstract class AbstractDrawing implements IDrawing {
         char[] chars = code.toCharArray();
         Color[] fontColor = new Color[chars.length];
         for (int i = 0; i < chars.length; i++) {
-            fontColor[i] = ImageUtil.randomColor();
+            //设置字体颜色,如果是随机字体,不能和背景颜色重复
+            fontColor[i] = this.fontColor == null ? ImageUtil.randomColor(this.backgroundColor) : this.fontColor;
             frame = graphicsImage(chars, fontColor, chars, i);
             gif.addFrame(frame);
             frame.flush();
@@ -181,16 +192,31 @@ public abstract class AbstractDrawing implements IDrawing {
     }
 
     /**
+     * 随机获取干扰线颜色
+     * <p>若已指定干扰线颜色,返回指定的干扰线颜色。无指定就返回和背景颜色不重复的颜色</p>
+     * @return
+     */
+    protected Color getInterferenceColorOrRandom(){
+        if (this.interferenceColor != null) {
+            return this.interferenceColor;
+        }else {
+            return ImageUtil.randomColor(this.backgroundColor);
+        }
+    }
+
+    /**
      * 绘制动态图
-     * @param fontColor 随机字体颜色
+     * @param fontColor 字体颜色
      * @param words     字符数组
      * @param flag      透明度使用
      * @return BufferedImage
      */
     private BufferedImage graphicsImage(char[] chars, Color[] fontColor, char[] words, int flag) {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-        //或得图形上下文
+        //获得图形上下文
         Graphics2D graphics2D = image.createGraphics();
+        //添加抗锯齿
+        graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         //利用指定颜色填充背景
         graphics2D.setColor(this.backgroundColor == null ? Color.BLACK : this.backgroundColor);
         graphics2D.fillRect(0, 0, width, height);
@@ -235,5 +261,42 @@ public abstract class AbstractDrawing implements IDrawing {
 
     public void setGifDelay(int gifDelay) {
         this.gifDelay = gifDelay;
+    }
+
+
+    /**
+     * X轴扭曲
+     * @param graphics
+     */
+    private void shearX(Graphics graphics){
+        ThreadLocalRandom random = RandomUtil.getRandom();
+        int period = random.nextInt(this.width);
+        int frames = 1;
+        int phase = random.nextInt(2);
+        for (int i = 0; i < this.width; i++) {
+            double d = (double) (period >> 1) * Math.sin((double) i / (double) period + (6.2831853071795862D * (double) phase) / (double) frames);
+            graphics.copyArea(0, i, this.width, 1, (int) d, 0);
+            graphics.setColor(this.backgroundColor);
+            graphics.drawLine((int) d, i, 0, i);
+            graphics.drawLine((int) d + this.width, i, this.width, i);
+        }
+    }
+
+    /**
+     * Y轴扭曲
+     * @param graphics
+     */
+    private void shearY(Graphics graphics){
+        int period = RandomUtil.randomInt(this.height >> 1);
+        int frames = 20;
+        int phase = 7;
+        for (int i = 0; i < this.width; i++) {
+            double d = (double) (period >> 1) * Math.sin((double) i / (double) period + (6.2831853071795862D * (double) phase) / (double) frames);
+            graphics.copyArea(i, 0, 1, this.height, 0, (int) d);
+            graphics.setColor(this.backgroundColor);
+            // 擦除原位置的痕迹
+            graphics.drawLine(i, (int) d, i, 0);
+            graphics.drawLine(i, (int) d + this.height, i, this.height);
+        }
     }
 }

@@ -2,11 +2,8 @@ package org.ncq.captcha.image;
 
 import org.ncq.captcha.enums.Interference;
 import org.ncq.captcha.enums.InterferenceTypeEnum;
-import org.ncq.captcha.utils.ImageUtil;
-import org.ncq.captcha.utils.RandomUtil;
 
 import java.awt.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @Author niuchangqing
@@ -37,13 +34,7 @@ public class OvalCaptcha extends AbstractDrawing {
      */
     @Override
     protected void drawInterference(Graphics2D graphics2D) {
-        final ThreadLocalRandom random = RandomUtil.getRandom();
-        if (this.interferenceColor == null) {
-            graphics2D.setColor(ImageUtil.randomColor());
-        }else {
-            graphics2D.setColor(this.interferenceColor);
-        }
-        graphics2D.drawOval(random.nextInt(this.width), random.nextInt(this.height), random.nextInt(this.height >> 1), random.nextInt(this.height >> 1));
+        DrawInterferenceUtil.drawOval(graphics2D,this.width, this.height, getInterferenceColorOrRandom());
     }
 
     @Override

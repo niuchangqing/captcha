@@ -54,6 +54,25 @@ public enum InterferenceTypeEnum implements  Interference {
             return new SquareCaptcha(width,height,interferenceCount,font,fontColor,backgroundColor,interferenceColor,alphaComposite);
         }
     },
+    /**
+     * 贝塞尔曲线
+     */
+    BEZIER{
+        @Override
+        public IDrawing drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
+            return new BezierCurveCaptcha(width,height,interferenceCount,font,fontColor,backgroundColor,interferenceColor,alphaComposite);
+        }
+    },
+    /**
+     * 贝塞尔曲线加圆圈
+     * 曲线和圈的比例,1:2
+     */
+    BEZIER_OVAL{
+        @Override
+        public IDrawing drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
+            return new BezierOvalCaptcha(width,height,interferenceCount,font,fontColor,backgroundColor,interferenceColor,alphaComposite);
+        }
+    },
     ;
 
     @Override

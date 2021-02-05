@@ -135,7 +135,7 @@ public class RandomUtil {
         ThreadLocalRandom random = getRandom();
         int first = random.nextInt(min,max);
         //随机获取运算符号
-        String calculationLabel = randomString(1,"+-*");
+        String calculationLabel = randomString(1,"+-x");
         int second = random.nextInt(min,max);
 
         StringBuilder calculationStr = new StringBuilder();
@@ -155,7 +155,7 @@ public class RandomUtil {
             case "-":
                 calculationResult = first - second;
                 break;
-            case "*":
+            case "x":
                 calculationResult = first * second;
                 break;
             default:

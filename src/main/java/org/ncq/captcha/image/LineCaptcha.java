@@ -2,11 +2,8 @@ package org.ncq.captcha.image;
 
 import org.ncq.captcha.enums.Interference;
 import org.ncq.captcha.enums.InterferenceTypeEnum;
-import org.ncq.captcha.utils.ImageUtil;
-import org.ncq.captcha.utils.RandomUtil;
 
 import java.awt.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @Author niuchangqing
@@ -29,20 +26,10 @@ public class LineCaptcha extends AbstractDrawing {
         super(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
     }
 
+
     @Override
     protected void drawInterference(Graphics2D graphics2D) {
-        ThreadLocalRandom random = RandomUtil.getRandom();
-        int xs = random.nextInt(width);
-        int ys = random.nextInt(height);
-        int xe = xs + random.nextInt(width / 4);
-        int ye = ys + random.nextInt(height / 4);
-        if (this.interferenceColor == null) {
-            graphics2D.setColor(ImageUtil.randomColor());
-        }else {
-            graphics2D.setColor(this.interferenceColor);
-        }
-        graphics2D.setStroke(new BasicStroke(1.5F));
-        graphics2D.drawLine(xs, ys, xe, ye);
+        DrawInterferenceUtil.drawLine(graphics2D,this.width, this.height, getInterferenceColorOrRandom());
     }
 
     @Override

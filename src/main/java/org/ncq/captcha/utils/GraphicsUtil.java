@@ -34,9 +34,10 @@ public class GraphicsUtil {
      * @param color             字体颜色，颜色可以为空，为空每个字符的颜色进行随机
      * @param width             图片的宽度
      * @param height            图片的高度
+     * @param backgroundColor   图片背景颜色
      * @return
      */
-    public static Graphics drawStr(Graphics graphics, String str, Font font, Color color, int width, int height){
+    public static Graphics drawStr(Graphics graphics, String str, Font font, Color color, int width, int height, Color backgroundColor){
         if (graphics instanceof Graphics2D) {
             ((Graphics2D) graphics).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         }
@@ -53,8 +54,8 @@ public class GraphicsUtil {
         ThreadLocalRandom random = RandomUtil.getRandom();
         for (int i = 0; i < len; i++) {
             if (null == color) {
-                //随机产生字体颜色
-                graphics.setColor(ImageUtil.randomColor());
+                //随机产生字体颜色，不能和图片背景颜色重复
+                graphics.setColor(ImageUtil.randomColor(backgroundColor));
             }
             //设置字体高度上下偏移量
             int y = textCenterYHeight / 5;
