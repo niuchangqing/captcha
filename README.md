@@ -18,7 +18,7 @@ captcha是一个图片验证码生成工具库,通过调用ImageCaptchaUtil中�
 - 中文
 
 <audio id="audio" controls="" preload="none">
-<source id="zh_sample1" src="https://github.com/niuchangqing/captcha/blob/master/sample/audio/zh_sample1.wav">
+<source id="zh_sample1" src="https://github.com/niuchangqing/captcha/tree/master/sample/audio/zh_sample1.wav"></source>
 </audio>
 
 ## 使用例子
