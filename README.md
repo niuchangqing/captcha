@@ -17,8 +17,8 @@ captcha是一个图片验证码生成工具库,通过调用ImageCaptchaUtil中�
 ### 音频验证码样例
 - 中文
 
-<audio id="audio" controls="" preload="none" width="100" height="200">
-<source id="wav" src="https://github.com/niuchangqing/captcha/tree/master/sample/audio/zh_sample1.wav">
+<audio id="audio" controls="" preload="none">
+      <source id="mp3" src="https://github.com/niuchangqing/captcha/tree/master/sample/audio/zh_sample1.wav">
 </audio>
 
 ## 使用例子
