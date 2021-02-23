@@ -21,10 +21,6 @@ captcha是一个图片验证码生成工具库,通过调用ImageCaptchaUtil中�
 <source id="zh_sample1" src="https://github.com/niuchangqing/captcha/blob/master/sample/audio/zh_sample1.wav">
 </audio>
 
-作者：范东同学
-链接：https://www.jianshu.com/p/0742bb15c2dd
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ## 使用例子
 ```java
 //静态图片,支持返回图片的base64,base64Data,byte[]
