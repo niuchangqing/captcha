@@ -104,6 +104,31 @@ public final class CaptchaFont {
     public static final String CAPTCHA_FONT_16 = "captchaFont16";
 
     /**
+     * 扩展字体17,对应字体文件/resource/font/3Dumb.ttf
+     */
+    public static final String CAPTCHA_FONT_17 = "3Dumb";
+
+    /**
+     * 扩展字体18,对应字体文件/resource/font/ApothecaryFont.ttf
+     */
+    public static final String CAPTCHA_FONT_18 = "ApothecaryFont";
+
+    /**
+     * 扩展字体19,对应字体文件/resource/font/chromohv.ttf
+     */
+    public static final String CAPTCHA_FONT_19 = "chromohv";
+
+    /**
+     * 扩展字体20,对应字体文件/resource/font/Comismsh.ttf
+     */
+    public static final String CAPTCHA_FONT_20 = "Comismsh";
+
+    /**
+     * 扩展字体21,对应字体文件/resource/font/Flim-Flam.ttf
+     */
+    public static final String CAPTCHA_FONT_21 =  "Flim-Flam";
+
+    /**
      * 扩展字体name集合,判断是否支持的自定义字体
      */
     public static final Set<String> CAPTCHA_FONT_NAMES = new HashSet<String>(){{
@@ -123,6 +148,11 @@ public final class CaptchaFont {
         add(CAPTCHA_FONT_14);
         add(CAPTCHA_FONT_15);
         add(CAPTCHA_FONT_16);
+        add(CAPTCHA_FONT_17);
+        add(CAPTCHA_FONT_18);
+        add(CAPTCHA_FONT_19);
+        add(CAPTCHA_FONT_20);
+        add(CAPTCHA_FONT_21);
     }};
 
     /**
@@ -145,6 +175,11 @@ public final class CaptchaFont {
         put(CAPTCHA_FONT_14,"font14.ttf");
         put(CAPTCHA_FONT_15,"font15.otf");
         put(CAPTCHA_FONT_16,"font16.ttf");
+        put(CAPTCHA_FONT_17,"3Dumb.ttf");
+        put(CAPTCHA_FONT_18,"ApothecaryFont.ttf");
+        put(CAPTCHA_FONT_19,"chromohv.ttf");
+        put(CAPTCHA_FONT_20,"Comismsh.ttf");
+        put(CAPTCHA_FONT_21,"Flim-Flam.ttf");
     }};
 
     /**
@@ -172,6 +207,23 @@ public final class CaptchaFont {
     }
 
     /**
+     * 字体文件流创建字体
+     * @param inputStream           字体样式文件
+     * @param style                 字体样式
+     * @param size                  字体大小
+     * @return
+     */
+    public static Font getFont(InputStream inputStream, int style, int size){
+        try {
+            return Font.createFont(Font.TRUETYPE_FONT,inputStream).deriveFont(style, size);
+        }catch (FontFormatException e) {
+            throw new CaptchaException(e.getMessage());
+        } catch (IOException ioException) {
+            throw new CaptchaException(ioException.getMessage());
+        }
+    }
+
+    /**
      * 创建自定义字体
      * use:{@link java.awt.Font#createFont(int, java.io.InputStream)}
      * @return
@@ -183,12 +235,6 @@ public final class CaptchaFont {
             throw new CaptchaException("not find font file name");
         }
         InputStream resourceAsStream = CaptchaFont.class.getResourceAsStream("/font/".concat(fontFileName));
-        try {
-            return Font.createFont(Font.TRUETYPE_FONT,resourceAsStream).deriveFont(style, size);
-        }catch (FontFormatException e) {
-            throw new CaptchaException(e.getMessage());
-        } catch (IOException ioException) {
-            throw new CaptchaException(ioException.getMessage());
-        }
+        return getFont(resourceAsStream, style, size);
     }
 }

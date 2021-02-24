@@ -51,16 +51,19 @@ public class GraphicsUtil {
         }
         int len = str.length();
         int charWidth = width / len;
+        //设置字体x轴左右偏移量
+        int x = charWidth / 5;
+        //设置字体高度上下偏移量
+        int y = textCenterYHeight / 5;
         ThreadLocalRandom random = RandomUtil.getRandom();
         for (int i = 0; i < len; i++) {
             if (null == color) {
                 //随机产生字体颜色，不能和图片背景颜色重复
                 graphics.setColor(ImageUtil.randomColor(backgroundColor));
             }
-            //设置字体高度上下偏移量
-            int y = textCenterYHeight / 5;
             int textHeight = textCenterYHeight - random.nextInt(-y,y);
-            graphics.drawString(String.valueOf(str.charAt(i)),i * charWidth,textHeight);
+            int textWidth = i * charWidth + random.nextInt(i == 0 ? 0 : -x,x);
+            graphics.drawString(String.valueOf(str.charAt(i)),textWidth, textHeight);
         }
         return graphics;
     }
