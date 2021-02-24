@@ -1,6 +1,7 @@
 package org.ncq.captcha.audio;
 
 import org.ncq.captcha.enums.ILanguage;
+import org.ncq.captcha.enums.LanguageEnum;
 import org.ncq.captcha.exception.CaptchaException;
 import org.ncq.captcha.utils.WavUtil;
 
@@ -31,15 +32,12 @@ public abstract class AbstractAudioCaptcha implements IAudioCaptcha {
      */
     protected InputStream suffix;
 
-    public AbstractAudioCaptcha(){
-    }
-
     public AbstractAudioCaptcha(ILanguage language) {
-        this.language = language;
+        this.language = language == null ? LanguageEnum.ZH : language;
     }
 
     public AbstractAudioCaptcha(ILanguage language, InputStream prefix, InputStream suffix){
-        this.language = language;
+        this.language = language == null ? LanguageEnum.ZH : language;;
         this.prefix = prefix;
         this.suffix = suffix;
     }

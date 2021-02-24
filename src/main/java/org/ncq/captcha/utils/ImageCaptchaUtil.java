@@ -2,7 +2,7 @@ package org.ncq.captcha.utils;
 
 import org.ncq.captcha.enums.Interference;
 import org.ncq.captcha.enums.InterferenceTypeEnum;
-import org.ncq.captcha.image.IDrawing;
+import org.ncq.captcha.image.IImageCaptcha;
 
 import java.awt.*;
 
@@ -50,7 +50,7 @@ public class ImageCaptchaUtil {
         if (interference == null) {
             interference = InterferenceTypeEnum.OVAL;
         }
-        IDrawing drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
+        IImageCaptcha drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
         return drawing.getImageBase64Data(code);
     }
 
@@ -92,7 +92,7 @@ public class ImageCaptchaUtil {
         if (interference == null) {
             interference = InterferenceTypeEnum.OVAL;
         }
-        IDrawing drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
+        IImageCaptcha drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
         return drawing.getImageBase64(code);
     }
 
@@ -134,7 +134,7 @@ public class ImageCaptchaUtil {
         if (interference == null) {
             interference = InterferenceTypeEnum.OVAL;
         }
-        IDrawing drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
+        IImageCaptcha drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
         return drawing.getImageBytes(code);
     }
 
@@ -176,7 +176,7 @@ public class ImageCaptchaUtil {
         if (interference == null) {
             interference = InterferenceTypeEnum.OVAL;
         }
-        IDrawing drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
+        IImageCaptcha drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
         return drawing.getGifImageBase64Data(code);
     }
 
@@ -217,7 +217,7 @@ public class ImageCaptchaUtil {
         if (interference == null) {
             interference = InterferenceTypeEnum.OVAL;
         }
-        IDrawing drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
+        IImageCaptcha drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
         return drawing.getGifImageBase64(code);
     }
 
@@ -258,7 +258,7 @@ public class ImageCaptchaUtil {
         if (interference == null) {
             interference = InterferenceTypeEnum.OVAL;
         }
-        IDrawing drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
+        IImageCaptcha drawing = interference.drawing(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
         return drawing.getGifImageBytes(code);
     }
 }

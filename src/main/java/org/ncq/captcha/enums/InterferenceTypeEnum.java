@@ -14,7 +14,7 @@ public enum InterferenceTypeEnum implements  Interference {
      */
     OVAL{
         @Override
-        public IDrawing drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
+        public IImageCaptcha drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
             return new OvalCaptcha(width,height,interferenceCount,font,fontColor,backgroundColor,interferenceColor,alphaComposite);
         }
     },
@@ -23,7 +23,7 @@ public enum InterferenceTypeEnum implements  Interference {
      */
     ARC{
         @Override
-        public IDrawing drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
+        public IImageCaptcha drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
             return new ArcCaptcha(width,height,interferenceCount,font,fontColor,backgroundColor,interferenceColor,alphaComposite);
         }
     },
@@ -32,7 +32,7 @@ public enum InterferenceTypeEnum implements  Interference {
      */
     LINE{
         @Override
-        public IDrawing drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
+        public IImageCaptcha drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
             return new LineCaptcha(width,height,interferenceCount,font,fontColor,backgroundColor,interferenceColor,alphaComposite);
         }
     },
@@ -41,7 +41,7 @@ public enum InterferenceTypeEnum implements  Interference {
      */
     POINT{
         @Override
-        public IDrawing drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
+        public IImageCaptcha drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
             return new PointCaptcha(width,height,interferenceCount,font,fontColor,backgroundColor,interferenceColor,alphaComposite);
         }
     },
@@ -50,7 +50,7 @@ public enum InterferenceTypeEnum implements  Interference {
      */
     SQUARE{
         @Override
-        public IDrawing drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
+        public IImageCaptcha drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
             return new SquareCaptcha(width,height,interferenceCount,font,fontColor,backgroundColor,interferenceColor,alphaComposite);
         }
     },
@@ -59,7 +59,7 @@ public enum InterferenceTypeEnum implements  Interference {
      */
     BEZIER{
         @Override
-        public IDrawing drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
+        public IImageCaptcha drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
             return new BezierCurveCaptcha(width,height,interferenceCount,font,fontColor,backgroundColor,interferenceColor,alphaComposite);
         }
     },
@@ -69,7 +69,7 @@ public enum InterferenceTypeEnum implements  Interference {
      */
     BEZIER_OVAL{
         @Override
-        public IDrawing drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
+        public IImageCaptcha drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
             return new BezierOvalCaptcha(width,height,interferenceCount,font,fontColor,backgroundColor,interferenceColor,alphaComposite);
         }
     },

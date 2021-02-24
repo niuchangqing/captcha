@@ -27,6 +27,10 @@ public class PointCaptcha extends AbstractDrawing {
         super(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
     }
 
+    public PointCaptcha(int width, int height, int interferenceCount){
+        super(width, height, interferenceCount, null, null, null, null, null);
+    }
+
     @Override
     protected void drawInterference(Graphics2D graphics2D) {
         DrawInterferenceUtil.drawPoint(graphics2D, this.width, this.height, getInterferenceColorOrRandom());

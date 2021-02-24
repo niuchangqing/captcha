@@ -1,6 +1,6 @@
 package org.ncq.captcha.enums;
 
-import org.ncq.captcha.image.IDrawing;
+import org.ncq.captcha.image.IImageCaptcha;
 
 import java.awt.*;
 
@@ -19,5 +19,5 @@ public interface Interference {
      * @param alphaComposite            透明度,可以为空
      * @return
      */
-    IDrawing drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite);
+    IImageCaptcha drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite);
 }

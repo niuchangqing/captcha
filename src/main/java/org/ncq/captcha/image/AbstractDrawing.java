@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @Author niuchangqing
  * @Description
  */
-public abstract class AbstractDrawing implements IDrawing {
+public abstract class AbstractDrawing implements IImageCaptcha {
     /**
      * 生成图片的宽度
      */

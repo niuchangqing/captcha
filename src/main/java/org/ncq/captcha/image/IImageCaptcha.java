@@ -2,7 +2,7 @@ package org.ncq.captcha.image;
 
 import org.ncq.captcha.enums.Interference;
 
-public interface IDrawing {
+public interface IImageCaptcha {
     /**
      * 获取验证码图片base64字符串
      * @param code              验证码

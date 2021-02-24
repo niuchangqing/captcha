@@ -28,6 +28,10 @@ public class OvalCaptcha extends AbstractDrawing {
         super(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
     }
 
+    public OvalCaptcha(int width, int height, int interferenceCount){
+        super(width, height, interferenceCount, null, null, null, null, null);
+    }
+
     /**
      * 圆形干扰线
      * @param graphics2D        绘笔对象

@@ -2,7 +2,6 @@ package org.ncq.captcha.image;
 
 import org.ncq.captcha.enums.Interference;
 import org.ncq.captcha.enums.InterferenceTypeEnum;
-import org.ncq.captcha.utils.ImageUtil;
 
 import java.awt.*;
 
@@ -26,6 +25,10 @@ public class BezierCurveCaptcha extends AbstractDrawing {
      */
     public BezierCurveCaptcha(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite) {
         super(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
+    }
+
+    public BezierCurveCaptcha(int width, int height, int interferenceCount){
+        super(width, height, interferenceCount, null, null, null, null, null);
     }
 
     @Override

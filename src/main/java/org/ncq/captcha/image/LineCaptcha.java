@@ -26,6 +26,10 @@ public class LineCaptcha extends AbstractDrawing {
         super(width, height, interferenceCount, font, fontColor, backgroundColor, interferenceColor, alphaComposite);
     }
 
+    public LineCaptcha(int width, int height, int interferenceCount){
+        super(width, height, interferenceCount, null, null, null, null, null);
+    }
+
 
     @Override
     protected void drawInterference(Graphics2D graphics2D) {

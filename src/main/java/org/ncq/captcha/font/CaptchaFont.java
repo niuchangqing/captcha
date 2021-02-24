@@ -148,6 +148,12 @@ public final class CaptchaFont {
     }};
 
     /**
+     * 私有构造方法
+     */
+    private CaptchaFont(){
+    }
+
+    /**
      * 获取字体
      * @param name      字体name
      * @param style     字体样式
