@@ -140,6 +140,7 @@ RandomUtil类中实现了常用随机字符串数字等相关方法,方便用户
 |19|CaptchaFont.CAPTCHA_FONT_19|否|![Image](sample/image/CAPTCHA_FONT_19.png)|
 |20|CaptchaFont.CAPTCHA_FONT_20|否|![Image](sample/image/CAPTCHA_FONT_20.png)|
 |21|CaptchaFont.CAPTCHA_FONT_21|否|![Image](sample/image/CAPTCHA_FONT_21.png)|
+
 备注:字体大小可调,获取自定义字体(Font font = CaptchaFont.getFont(CaptchaFont.CAPTCHA_FONT_1, Font.BOLD, 35);)
 
 注意:自定义字体建议使用Spring容器注入或单例方式,防止字体文件过大影响性能
