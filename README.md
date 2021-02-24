@@ -18,7 +18,7 @@ captcha是一个图片/音频验证码生成工具库。
 
 ![Image](sample/image/example11.png)&emsp;&emsp;&emsp;![Image](sample/image/example12.png)&emsp;&emsp;&emsp;![Image](sample/image/example13.png)&emsp;&emsp;&emsp;![Image](sample/image/example14.png)
 
-下拉查看自定义字体[表格](#自定义字体)
+[查看自定义字体表格](#自定义字体)
 ## 音频验证码样例
 - 中文音频验证码样例下载地址
 
