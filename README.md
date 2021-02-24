@@ -5,7 +5,7 @@ captcha是一个图片/音频验证码生成工具库。
 
 2.支持音频验证码,音频验证码格式为wav格式。调用AudioCaptchaUtil中的方法来生成音频验证码,支持返回音频base64,base64Data和byte[]。可自定义添加音频验证码前缀音频和后缀音频,如:您的验证码是 2836 请输入(格式:prefix + code + suffix)。默认支持中文,英文,日语,俄语(仅支持0～9,a～z,A～Z)。可以通过继承AbstractAudioCaptcha类来实现其他语言。
 ## 使用
-目前还没有推送maven仓库,下载地址:https://github.com/niuchangqing/captcha/releases/tag/v1.0.0-RELEASE
+目前还没有推送maven仓库,下载地址:https://github.com/niuchangqing/captcha/releases/tag/1.0.1-RELEASE
 
 ## 生成图片样例
 ![Image](sample/image/example1.png) &emsp;&emsp;&emsp; ![Image](sample/image/example2.png) &emsp;&emsp;&emsp; ![Image](sample/image/example3.png)&emsp;&emsp;&emsp;![Image](sample/image/example15.png)
@@ -17,6 +17,8 @@ captcha是一个图片/音频验证码生成工具库。
 ![Image](sample/image/example6.png)&emsp;&emsp;&emsp;![Image](sample/image/example10.png)&emsp;&emsp;&emsp;![Image](sample/image/example8.png)&emsp;&emsp;&emsp;![Image](sample/image/example9.png)
 
 ![Image](sample/image/example11.png)&emsp;&emsp;&emsp;![Image](sample/image/example12.png)&emsp;&emsp;&emsp;![Image](sample/image/example13.png)&emsp;&emsp;&emsp;![Image](sample/image/example14.png)
+
+下拉查看自定义字体[表格](#自定义字体)
 ## 音频验证码样例
 - 中文音频验证码样例下载地址
 
@@ -112,7 +114,8 @@ String imageBase64Data = ImageCaptchaUtil.getImageBase64Data(RandomUtil.randomSt
 ## 常用随机字符串随机数子和随机运算字符串
 RandomUtil类中实现了常用随机字符串数字等相关方法,方便用户生成code字符串
 
-## 自定义字体表格(都支持数字以及字母)
+## 自定义字体
+所有字体都支持数字以及字母
 |序号 |字体 |支持常用汉字 |样例 |
 |----------|-----------|--------------|---------------------------|
 |1|CaptchaFont.CAPTCHA_FONT_1|否|![Image](sample/image/CAPTCHA_FONT_1.png)|
