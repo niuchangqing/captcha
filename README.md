@@ -8,19 +8,15 @@ captcha是一个图片/音频验证码生成工具库。
 目前还没有推送maven仓库,下载地址:https://github.com/niuchangqing/captcha/releases/tag/v1.0.0-RELEASE
 
 ## 生成图片样例
-![Image](sample/image/example1.png) &emsp;&emsp;&emsp; ![Image](sample/image/example2.png) &emsp;&emsp;&emsp; ![Image](sample/image/example3.png)
+![Image](sample/image/example1.png) &emsp;&emsp;&emsp; ![Image](sample/image/example2.png) &emsp;&emsp;&emsp; ![Image](sample/image/example3.png)&emsp;&emsp;&emsp;![Image](sample/image/example15.png)
 
-![Image](sample/image/example15.png) &emsp;&emsp;&emsp; ![Image](sample/image/example16.png) &emsp;&emsp;&emsp; ![Image](sample/image/example17.png)
+![Image](sample/image/example16.png) &emsp;&emsp;&emsp; ![Image](sample/image/example17.png)&emsp;&emsp;&emsp;![Image](sample/image/example18.png) &emsp;&emsp;&emsp; ![Image](sample/image/example19.png)
 
-![Image](sample/image/example18.png) &emsp;&emsp;&emsp; ![Image](sample/image/example19.png) &emsp;&emsp;&emsp; ![Image](sample/image/example20.gif)
+![Image](sample/image/example20.gif)&emsp;&emsp;&emsp;![Image](sample/image/example4.png) &emsp;&emsp;&emsp;![Image](sample/image/example5.gif) &emsp;&emsp;&emsp;![Image](sample/image/example5.png)
 
-![Image](sample/image/example4.png) &emsp;&emsp;&emsp;![Image](sample/image/example5.gif) &emsp;&emsp;&emsp;![Image](sample/image/example5.png)
+![Image](sample/image/example6.png)&emsp;&emsp;&emsp;![Image](sample/image/example10.png)&emsp;&emsp;&emsp;![Image](sample/image/example8.png)&emsp;&emsp;&emsp;![Image](sample/image/example9.png)
 
-![Image](sample/image/example6.png)&emsp;&emsp;&emsp;![Image](sample/image/example7.gif)&emsp;&emsp;&emsp;![Image](sample/image/example8.png)
-
-![Image](sample/image/example9.png)&emsp;&emsp;&emsp;![Image](sample/image/example10.png)&emsp;&emsp;&emsp;![Image](sample/image/example11.png)
-
-![Image](sample/image/example12.png)&emsp;&emsp;&emsp;![Image](sample/image/example13.png)&emsp;&emsp;&emsp;![Image](sample/image/example14.png)
+![Image](sample/image/example11.png)&emsp;&emsp;&emsp;![Image](sample/image/example12.png)&emsp;&emsp;&emsp;![Image](sample/image/example13.png)&emsp;&emsp;&emsp;![Image](sample/image/example14.png)
 ## 音频验证码样例
 - 中文音频验证码样例下载地址
 
@@ -129,12 +125,12 @@ RandomUtil类中实现了常用随机字符串数字等相关方法,方便用户
 |8|CaptchaFont.CAPTCHA_FONT_8|否|![Image](sample/image/CAPTCHA_FONT_8.png)|
 |9|CaptchaFont.CAPTCHA_FONT_9|否|![Image](sample/image/CAPTCHA_FONT_9.png)|
 |10|CaptchaFont.CAPTCHA_FONT_10|否|![Image](sample/image/CAPTCHA_FONT_10.png)|
-|11|CaptchaFont.CAPTCHA_FONT_11|是|![Image](sample/image/CAPTCHA_FONT_11.png)&emsp;![Image](sample/image/ZH_CAPTCHA_FONT_11.png)|
-|12|CaptchaFont.CAPTCHA_FONT_12|是|![Image](sample/image/CAPTCHA_FONT_12.png)&emsp;![Image](sample/image/ZH_CAPTCHA_FONT_12.png)|
-|13|CaptchaFont.CAPTCHA_FONT_13|是|![Image](sample/image/CAPTCHA_FONT_13.png)&emsp;![Image](sample/image/ZH_CAPTCHA_FONT_13.png)|
-|14|CaptchaFont.CAPTCHA_FONT_14|是|![Image](sample/image/CAPTCHA_FONT_14.png)&emsp;![Image](sample/image/ZH_CAPTCHA_FONT_14.png)|
-|15|CaptchaFont.CAPTCHA_FONT_15|是|![Image](sample/image/CAPTCHA_FONT_15.png)&emsp;![Image](sample/image/ZH_CAPTCHA_FONT_15.png)|
-|16|CaptchaFont.CAPTCHA_FONT_16|是|![Image](sample/image/CAPTCHA_FONT_16.png)&emsp;![Image](sample/image/ZH_CAPTCHA_FONT_16.png)|
+|11|CaptchaFont.CAPTCHA_FONT_11|是|![Image](sample/image/CAPTCHA_FONT_11.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_11.png)|
+|12|CaptchaFont.CAPTCHA_FONT_12|是|![Image](sample/image/CAPTCHA_FONT_12.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_12.png)|
+|13|CaptchaFont.CAPTCHA_FONT_13|是|![Image](sample/image/CAPTCHA_FONT_13.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_13.png)|
+|14|CaptchaFont.CAPTCHA_FONT_14|是|![Image](sample/image/CAPTCHA_FONT_14.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_14.png)|
+|15|CaptchaFont.CAPTCHA_FONT_15|是|![Image](sample/image/CAPTCHA_FONT_15.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_15.png)|
+|16|CaptchaFont.CAPTCHA_FONT_16|是|![Image](sample/image/CAPTCHA_FONT_16.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_16.png)|
 |17|CaptchaFont.CAPTCHA_FONT_17|否|![Image](sample/image/CAPTCHA_FONT_17.png)|
 |18|CaptchaFont.CAPTCHA_FONT_18|否|![Image](sample/image/CAPTCHA_FONT_18.png)|
 |19|CaptchaFont.CAPTCHA_FONT_19|否|![Image](sample/image/CAPTCHA_FONT_19.png)|
