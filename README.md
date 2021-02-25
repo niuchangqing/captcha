@@ -5,7 +5,13 @@ captcha是一个图片/音频验证码生成工具库。
 
 2.支持音频验证码,音频验证码格式为wav格式。调用AudioCaptchaUtil中的方法来生成音频验证码,支持返回音频base64,base64Data和byte[]。可自定义添加音频验证码前缀音频和后缀音频,如:您的验证码是 2836 请输入(格式:prefix + code + suffix)。默认支持中文,英文,日语,俄语(仅支持0～9,a～z,A～Z)。可以通过继承AbstractAudioCaptcha类来实现其他语言。
 ## 使用
-目前还没有推送maven仓库,下载地址:https://github.com/niuchangqing/captcha/releases/tag/1.0.1-RELEASE
+```xml
+<dependency>
+  <groupId>org.niuchangqing</groupId>
+  <artifactId>captcha</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
 
 ## 生成图片样例
 ![Image](sample/image/example1.png) &emsp;&emsp;&emsp; ![Image](sample/image/example2.png) &emsp;&emsp;&emsp; ![Image](sample/image/example3.png)&emsp;&emsp;&emsp;![Image](sample/image/example15.png)
