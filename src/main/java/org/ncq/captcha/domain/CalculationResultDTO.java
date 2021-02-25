@@ -1,8 +1,8 @@
 package org.ncq.captcha.domain;
 
 /**
- * @Author niuchangqing
- * @Description 随机生成运算字符串结果
+ * @author niuchangqing
+ * 随机生成运算字符串结果
  */
 public class CalculationResultDTO {
     /**

@@ -7,8 +7,8 @@ import org.ncq.captcha.image.IImageCaptcha;
 import java.awt.*;
 
 /**
- * @Author niuchangqing
- * @Description 图形验证码工具类
+ * @author niuchangqing
+ * 图形验证码工具类
  */
 public class ImageCaptchaUtil {
 
@@ -44,7 +44,7 @@ public class ImageCaptchaUtil {
      * @param interferenceColor         干扰线颜色,可以为空
      * @param alphaComposite            透明度,可以为空
      * @param interference              干扰线类型 事例:{@link org.ncq.captcha.enums.InterferenceTypeEnum},若是自定义继承实现{@link org.ncq.captcha.enums.Interference}
-     * @return
+     * @return                          base64Data
      */
     public static String getImageBase64Data(String code,int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite, Interference interference){
         if (interference == null) {
@@ -86,7 +86,7 @@ public class ImageCaptchaUtil {
      * @param interferenceColor         干扰线颜色,可以为空
      * @param alphaComposite            透明度,可以为空
      * @param interference              干扰线类型 事例:{@link org.ncq.captcha.enums.InterferenceTypeEnum},若是自定义继承实现{@link org.ncq.captcha.enums.Interference}
-     * @return
+     * @return                          base64字符串
      */
     public static String getImageBase64(String code,int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite, Interference interference){
         if (interference == null) {
@@ -128,7 +128,7 @@ public class ImageCaptchaUtil {
      * @param interferenceColor         干扰线颜色,可以为空
      * @param alphaComposite            透明度,可以为空
      * @param interference              干扰线类型,可以为空 事例:{@link org.ncq.captcha.enums.InterferenceTypeEnum},若是自定义继承实现{@link org.ncq.captcha.enums.Interference}
-     * @return
+     * @return                          byte[]
      */
     public static byte[] getImageBytes(String code,int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite, Interference interference){
         if (interference == null) {
@@ -170,7 +170,7 @@ public class ImageCaptchaUtil {
      * @param interferenceColor             干扰线颜色,可以为空
      * @param alphaComposite                透明度,可以为空
      * @param interference                  干扰线类型,可以为空 事例:{@link org.ncq.captcha.enums.InterferenceTypeEnum},若是自定义继承实现{@link org.ncq.captcha.enums.Interference}
-     * @return
+     * @return                              base64Data字符串
      */
     public static String getGifImageBase64Data(String code,int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite, Interference interference){
         if (interference == null) {
@@ -211,7 +211,7 @@ public class ImageCaptchaUtil {
      * @param interferenceColor             干扰线颜色,可以为空
      * @param alphaComposite                透明度,可以为空
      * @param interference                  干扰线类型,可以为空 事例:{@link org.ncq.captcha.enums.InterferenceTypeEnum},若是自定义继承实现{@link org.ncq.captcha.enums.Interference}
-     * @return
+     * @return                              base64字符串
      */
     public static String getGifImageBase64(String code,int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite, Interference interference){
         if (interference == null) {
@@ -252,7 +252,7 @@ public class ImageCaptchaUtil {
      * @param interferenceColor             干扰线颜色,可以为空
      * @param alphaComposite                透明度,可以为空
      * @param interference                  干扰线类型,可以为空 事例:{@link org.ncq.captcha.enums.InterferenceTypeEnum},若是自定义继承实现{@link org.ncq.captcha.enums.Interference}
-     * @return
+     * @return                              byte[]
      */
     public static byte[] getGitImageBytes(String code,int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite, Interference interference){
         if (interference == null) {

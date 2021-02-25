@@ -10,8 +10,8 @@ import java.util.Base64;
 import java.util.List;
 
 /**
- * @Author niuchangqing
- * @Description 音频验证码
+ * @author niuchangqing
+ * 音频验证码
  */
 public abstract class AbstractAudioCaptcha implements IAudioCaptcha {
 
@@ -82,15 +82,15 @@ public abstract class AbstractAudioCaptcha implements IAudioCaptcha {
 
     /**
      * 获取验证码文件的输入流
-     * @param code
-     * @return
+     * @param code          验证码
+     * @return              验证码字符对应的wav格式InputStream对象
      */
     protected abstract List<InputStream> getCodeAudio(String code);
 
     /**
      * 获取默认空白音频信息
      * 文件路径:/resources/audio/blank.wav
-     * @return
+     * @return              空格wav格式InputStream
      */
     private InputStream getBlank(){
         InputStream inputStream = AbstractAudioCaptcha.class.getResourceAsStream("/audio/blank.wav");

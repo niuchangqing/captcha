@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * @Author niuchangqing
- * @Description 图片工具类
+ * @author niuchangqing
+ * 图片工具类
  */
 public class ImageUtil {
     /**
@@ -46,7 +46,7 @@ public class ImageUtil {
 
     /**
      * 随机生成颜色
-     * @return
+     * @return                      颜色对象
      */
     public static Color randomColor(){
         ThreadLocalRandom random = RandomUtil.getRandom();
@@ -56,7 +56,7 @@ public class ImageUtil {
     /**
      * 随机获取一个和指定颜色不同的颜色
      * @param color                 可以为空
-     * @return
+     * @return                      颜色对象
      */
     public static Color randomColor(Color color){
         Color c = randomColor();

@@ -12,8 +12,7 @@ import java.util.Base64;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * @Author niuchangqing
- * @Description
+ * @author niuchangqing
  */
 public abstract class AbstractDrawing implements IImageCaptcha {
     /**
@@ -93,7 +92,7 @@ public abstract class AbstractDrawing implements IImageCaptcha {
     /**
      * 生成图片
      * @param code           图片验证码
-     * @return
+     * @return               Image
      */
     protected Image createImage(String code) {
         //图片buffer
@@ -117,7 +116,7 @@ public abstract class AbstractDrawing implements IImageCaptcha {
     /**
      * 生成动态图片
      * @param code              图片验证码
-     * @return
+     * @return                  byte[]
      */
     protected byte[] createGifImage(String code){
         // gif编码类
@@ -194,7 +193,7 @@ public abstract class AbstractDrawing implements IImageCaptcha {
     /**
      * 随机获取干扰线颜色
      * <p>若已指定干扰线颜色,返回指定的干扰线颜色。无指定就返回和背景颜色不重复的颜色</p>
-     * @return
+     * @return              颜色
      */
     protected Color getInterferenceColorOrRandom(){
         if (this.interferenceColor != null) {

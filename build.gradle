@@ -1,12 +1,12 @@
 plugins {
 	id 'java'
 }
+apply plugin: 'maven'
+apply plugin: 'signing'
 
-group = 'org.ncq.captcha'
-version = '1.0.0-SNAPSHOT'
+group = 'org.niuchangqing'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-
 repositories {
 	mavenCentral()
 }

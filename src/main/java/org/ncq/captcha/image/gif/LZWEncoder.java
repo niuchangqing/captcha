@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * @Author niuchangqing
- * @Description
+ * @author niuchangqing
  */
 public class LZWEncoder {
     private static final int EOF = -1;

@@ -5,8 +5,8 @@ import org.ncq.captcha.image.*;
 import java.awt.*;
 
 /**
- * @Author niuchangqing
- * @Description 干扰线类型枚举
+ * @author niuchangqing
+ * 干扰线类型枚举
  */
 public enum InterferenceTypeEnum implements  Interference {
     /**

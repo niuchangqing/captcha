@@ -6,8 +6,8 @@ import org.ncq.captcha.enums.InterferenceTypeEnum;
 import java.awt.*;
 
 /**
- * @Author niuchangqing
- * @Description 方块干扰类型
+ * @author niuchangqing
+ * 方块干扰类型
  */
 public class SquareCaptcha extends AbstractDrawing {
 

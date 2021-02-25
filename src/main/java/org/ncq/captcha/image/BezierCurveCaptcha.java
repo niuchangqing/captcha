@@ -6,8 +6,8 @@ import org.ncq.captcha.enums.InterferenceTypeEnum;
 import java.awt.*;
 
 /**
- * @Author niuchangqing
- * @Description 贝塞尔曲线干扰类型
+ * @author niuchangqing
+ * 贝塞尔曲线干扰类型
  */
 public class BezierCurveCaptcha extends AbstractDrawing {
 

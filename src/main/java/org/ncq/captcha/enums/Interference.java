@@ -17,7 +17,7 @@ public interface Interference {
      * @param backgroundColor           图片背景颜色,可以为空
      * @param interferenceColor         干扰线颜色,可以为空
      * @param alphaComposite            透明度,可以为空
-     * @return
+     * @return                          IImageCaptcha接口对象
      */
     IImageCaptcha drawing(int width, int height, int interferenceCount, Font font, Color fontColor, Color backgroundColor, Color interferenceColor, AlphaComposite alphaComposite);
 }

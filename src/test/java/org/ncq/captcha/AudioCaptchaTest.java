@@ -6,8 +6,8 @@ import org.ncq.captcha.utils.AudioCaptchaUtil;
 import org.ncq.captcha.utils.RandomUtil;
 
 /**
- * @Author niuchangqing
- * @Description
+ * @author niuchangqing
+ * @description
  */
 public class AudioCaptchaTest {
 

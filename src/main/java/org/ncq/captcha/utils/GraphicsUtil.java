@@ -5,8 +5,8 @@ import java.awt.image.BufferedImage;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * @Author niuchangqing
- * @Description 绘笔工具类
+ * @author niuchangqing
+ * 绘笔工具类
  */
 public class GraphicsUtil {
 
@@ -14,7 +14,7 @@ public class GraphicsUtil {
      * 创建绘笔公爵
      * @param bufferedImage         图片buffer
      * @param backgroundColor       背景颜色
-     * @return
+     * @return                      Graphics2D
      */
     public static Graphics2D createGraphics(BufferedImage bufferedImage, Color backgroundColor){
         final Graphics2D graphics2D = bufferedImage.createGraphics();
@@ -35,7 +35,7 @@ public class GraphicsUtil {
      * @param width             图片的宽度
      * @param height            图片的高度
      * @param backgroundColor   图片背景颜色
-     * @return
+     * @return                  Graphics
      */
     public static Graphics drawStr(Graphics graphics, String str, Font font, Color color, int width, int height, Color backgroundColor){
         if (graphics instanceof Graphics2D) {
@@ -72,7 +72,7 @@ public class GraphicsUtil {
      * 获取内容居中高度的Y轴坐标
      * @param graphics                  绘笔对象
      * @param backgroundImageHeight     图片的高度
-     * @return
+     * @return                          居中高度坐标
      */
     public static int getCenterYHeight(Graphics graphics, int backgroundImageHeight){
         //允许内容的最小高度

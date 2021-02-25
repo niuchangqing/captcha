@@ -5,8 +5,8 @@ import org.ncq.captcha.enums.Interference;
 import java.awt.*;
 
 /**
- * @Author niuchangqing
- * @Description 贝塞尔曲线加圆圈干扰
+ * @author niuchangqing
+ * 贝塞尔曲线加圆圈干扰
  */
 public class BezierOvalCaptcha extends AbstractDrawing {
 

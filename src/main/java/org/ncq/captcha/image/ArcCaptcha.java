@@ -7,8 +7,8 @@ import java.awt.*;
 
 
 /**
- * @Author niuchangqing
- * @Description 弧形验证码
+ * @author niuchangqing
+ * 弧形验证码
  */
 public class ArcCaptcha extends AbstractDrawing {
 

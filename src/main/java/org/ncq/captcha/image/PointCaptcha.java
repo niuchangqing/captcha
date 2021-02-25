@@ -6,8 +6,8 @@ import org.ncq.captcha.enums.InterferenceTypeEnum;
 import java.awt.*;
 
 /**
- * @Author niuchangqing
- * @Description 点类型干扰线
+ * @author niuchangqing
+ * 点类型干扰线
  */
 public class PointCaptcha extends AbstractDrawing {
 

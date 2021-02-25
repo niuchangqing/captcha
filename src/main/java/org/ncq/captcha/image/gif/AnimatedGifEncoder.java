@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * @Author niuchangqing
- * @Description 动态图片生成工具类
+ * @author niuchangqing
+ * 动态图片生成工具类
  */
 public class AnimatedGifEncoder {
     protected int width; // image size

@@ -11,8 +11,8 @@ import java.awt.*;
 import java.io.InputStream;
 
 /**
- * @Author niuchangqing
- * @Description 图片验证码测试
+ * @author niuchangqing
+ * 图片验证码测试
  */
 public class ImageCaptchaTest {
 

@@ -11,12 +11,12 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @Author niuchangqing
+ * @author niuchangqing
  * <p>
  *     部分自定义扩展字体只支持字母数字以及一些符号
  *     如果要使用中文,繁体请选好字体后测试一下
  * </p>
- * @Description 字体扩展
+ * 字体扩展
  */
 public final class CaptchaFont {
 
@@ -194,7 +194,7 @@ public final class CaptchaFont {
      * @param style     字体样式
      * @param size      字体大小
      * {@link java.awt.Font#Font(String, int, int)}
-     * @return
+     * @return          字体
      */
     public static Font getFont(String name, int style, int size){
         if (CAPTCHA_FONT_NAMES.contains(name)) {
@@ -211,7 +211,7 @@ public final class CaptchaFont {
      * @param inputStream           字体样式文件
      * @param style                 字体样式
      * @param size                  字体大小
-     * @return
+     * @return                      字体
      */
     public static Font getFont(InputStream inputStream, int style, int size){
         try {
@@ -226,7 +226,7 @@ public final class CaptchaFont {
     /**
      * 创建自定义字体
      * use:{@link java.awt.Font#createFont(int, java.io.InputStream)}
-     * @return
+     * @return                  字体
      */
     private static Font createCustomFont(String name, int style, int size){
         //获取文件路径

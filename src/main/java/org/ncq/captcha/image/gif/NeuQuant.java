@@ -1,8 +1,7 @@
 package org.ncq.captcha.image.gif;
 
 /**
- * @Author niuchangqing
- * @Description
+ * @author niuchangqing
  */
 public class NeuQuant {
     protected static final int NETSIZE = 256; /* number of colours used */

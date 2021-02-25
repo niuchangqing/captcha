@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author niuchangqing
- * @Description 默认音频验证码实现,只支持0～9,a~z,A~Z
+ * @author niuchangqing
+ * 默认音频验证码实现,只支持0～9,a~z,A~Z
  */
 public class DefaultAudioCaptcha extends AbstractAudioCaptcha {
 

@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Author niuchangqing
- * @Description wav格式文件工具类
+ * @author niuchangqing
+ * wav格式文件工具类
  */
 public final class WavUtil {
 

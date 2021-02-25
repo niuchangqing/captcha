@@ -9,8 +9,8 @@ import java.awt.geom.QuadCurve2D;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * @Author niuchangqing
- * @Description 绘制干扰线实现类
+ * @author niuchangqing
+ * 绘制干扰线实现类
  */
 class DrawInterferenceUtil {
 

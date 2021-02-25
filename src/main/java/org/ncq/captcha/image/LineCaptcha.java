@@ -6,8 +6,8 @@ import org.ncq.captcha.enums.InterferenceTypeEnum;
 import java.awt.*;
 
 /**
- * @Author niuchangqing
- * @Description 直线干扰类型
+ * @author niuchangqing
+ * 直线干扰类型
  */
 public class LineCaptcha extends AbstractDrawing {
     /**

@@ -1,8 +1,8 @@
 package org.ncq.captcha.exception;
 
 /**
- * @Author niuchangqing
- * @Description 验证码异常信息
+ * @author niuchangqing
+ * 验证码异常信息
  */
 public class CaptchaException extends RuntimeException {
 

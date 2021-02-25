@@ -6,8 +6,8 @@ import org.ncq.captcha.enums.InterferenceTypeEnum;
 import java.awt.*;
 
 /**
- * @Author niuchangqing
- * @Description 圆圈干扰类型图片验证码
+ * @author niuchangqing
+ * 圆圈干扰类型图片验证码
  */
 public class OvalCaptcha extends AbstractDrawing {
 
