@@ -71,62 +71,29 @@ public final class CaptchaFont {
     public static final String CAPTCHA_FONT_10 = "captchaFont10";
 
     /**
-     * 扩展字体11,对应字体文件/resource/font/font11.ttf
-     */
-    public static final String CAPTCHA_FONT_11 = "captchaFont11";
-
-    /**
-     * 扩展字体12,对应字体文件/resource/font/font12.ttf
-     * 沐瑶软笔手写体
-     */
-    public static final String CAPTCHA_FONT_12 = "captchaFont12";
-
-    /**
-     * 扩展字体13,对应字体文件/resource/font/font13.ttf
-     * 庞门正道粗书体
-     */
-    public static final String CAPTCHA_FONT_13 = "captchaFont13";
-
-    /**
-     * 扩展字体14,对应字体文件/resource/font/font14.ttf
-     * 手书体
-     */
-    public static final String CAPTCHA_FONT_14 = "captchaFont14";
-
-    /**
-     * 扩展字体15,对应字体文件/resource/font/font15.ttf
-     */
-    public static final String CAPTCHA_FONT_15 = "captchaFont15";
-
-    /**
-     * 扩展字体16,对应字体文件/resource/font/font16.ttf
-     */
-    public static final String CAPTCHA_FONT_16 = "captchaFont16";
-
-    /**
      * 扩展字体17,对应字体文件/resource/font/3Dumb.ttf
      */
-    public static final String CAPTCHA_FONT_17 = "3Dumb";
+    public static final String CAPTCHA_FONT_11 = "3Dumb";
 
     /**
      * 扩展字体18,对应字体文件/resource/font/ApothecaryFont.ttf
      */
-    public static final String CAPTCHA_FONT_18 = "ApothecaryFont";
+    public static final String CAPTCHA_FONT_12 = "ApothecaryFont";
 
     /**
      * 扩展字体19,对应字体文件/resource/font/chromohv.ttf
      */
-    public static final String CAPTCHA_FONT_19 = "chromohv";
+    public static final String CAPTCHA_FONT_13 = "chromohv";
 
     /**
      * 扩展字体20,对应字体文件/resource/font/Comismsh.ttf
      */
-    public static final String CAPTCHA_FONT_20 = "Comismsh";
+    public static final String CAPTCHA_FONT_14 = "Comismsh";
 
     /**
      * 扩展字体21,对应字体文件/resource/font/Flim-Flam.ttf
      */
-    public static final String CAPTCHA_FONT_21 =  "Flim-Flam";
+    public static final String CAPTCHA_FONT_15 =  "Flim-Flam";
 
     /**
      * 扩展字体name集合,判断是否支持的自定义字体
@@ -147,12 +114,6 @@ public final class CaptchaFont {
         add(CAPTCHA_FONT_13);
         add(CAPTCHA_FONT_14);
         add(CAPTCHA_FONT_15);
-        add(CAPTCHA_FONT_16);
-        add(CAPTCHA_FONT_17);
-        add(CAPTCHA_FONT_18);
-        add(CAPTCHA_FONT_19);
-        add(CAPTCHA_FONT_20);
-        add(CAPTCHA_FONT_21);
     }};
 
     /**
@@ -169,17 +130,11 @@ public final class CaptchaFont {
         put(CAPTCHA_FONT_8,"font8.ttf");
         put(CAPTCHA_FONT_9,"font9.ttf");
         put(CAPTCHA_FONT_10,"font10.ttf");
-        put(CAPTCHA_FONT_11,"font11.ttf");
-        put(CAPTCHA_FONT_12,"font12.ttf");
-        put(CAPTCHA_FONT_13,"font13.ttf");
-        put(CAPTCHA_FONT_14,"font14.ttf");
-        put(CAPTCHA_FONT_15,"font15.otf");
-        put(CAPTCHA_FONT_16,"font16.ttf");
-        put(CAPTCHA_FONT_17,"3Dumb.ttf");
-        put(CAPTCHA_FONT_18,"ApothecaryFont.ttf");
-        put(CAPTCHA_FONT_19,"chromohv.ttf");
-        put(CAPTCHA_FONT_20,"Comismsh.ttf");
-        put(CAPTCHA_FONT_21,"Flim-Flam.ttf");
+        put(CAPTCHA_FONT_11,"3Dumb.ttf");
+        put(CAPTCHA_FONT_12,"ApothecaryFont.ttf");
+        put(CAPTCHA_FONT_13,"chromohv.ttf");
+        put(CAPTCHA_FONT_14,"Comismsh.ttf");
+        put(CAPTCHA_FONT_15,"Flim-Flam.ttf");
     }};
 
     /**

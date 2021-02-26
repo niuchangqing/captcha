@@ -9,7 +9,7 @@ captcha是一个图片/音频验证码生成工具库。
 <dependency>
   <groupId>org.niuchangqing</groupId>
   <artifactId>captcha</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
@@ -113,7 +113,7 @@ iAudioCaptcha.getAudioBase64Data(code);
 ```
 ## 自定义字体使用
 ```java
-//已内置16中字体,部分字体不支持中文
+//已内置15中字体,内置字体只支持数字字母以及部分特殊符号
 Font font = CaptchaFont.getFont(CaptchaFont.CAPTCHA_FONT_1, Font.BOLD, 40);
 String imageBase64Data = ImageCaptchaUtil.getImageBase64Data(RandomUtil.randomString(4), 175, 55, 5, InterferenceTypeEnum.BEZIER, font);
 ```
@@ -121,31 +121,23 @@ String imageBase64Data = ImageCaptchaUtil.getImageBase64Data(RandomUtil.randomSt
 RandomUtil类中实现了常用随机字符串数字等相关方法,方便用户生成code字符串
 
 ## 自定义字体
-所有字体都支持数字以及字母
-|序号 |字体 |支持常用汉字 |样例 |
-|----------|-----------|--------------|---------------------------|
-|1|CaptchaFont.CAPTCHA_FONT_1|否|![Image](sample/image/CAPTCHA_FONT_1.png)|
-|2|CaptchaFont.CAPTCHA_FONT_2|否|![Image](sample/image/CAPTCHA_FONT_2.png)|
-|3|CaptchaFont.CAPTCHA_FONT_3|否|![Image](sample/image/CAPTCHA_FONT_3.png)|
-|4|CaptchaFont.CAPTCHA_FONT_4|否|![Image](sample/image/CAPTCHA_FONT_4.png)|
-|5|CaptchaFont.CAPTCHA_FONT_5|否|![Image](sample/image/CAPTCHA_FONT_5.png)|
-|6|CaptchaFont.CAPTCHA_FONT_6|否|![Image](sample/image/CAPTCHA_FONT_6.png)|
-|7|CaptchaFont.CAPTCHA_FONT_7|否|![Image](sample/image/CAPTCHA_FONT_7.png)|
-|8|CaptchaFont.CAPTCHA_FONT_8|否|![Image](sample/image/CAPTCHA_FONT_8.png)|
-|9|CaptchaFont.CAPTCHA_FONT_9|否|![Image](sample/image/CAPTCHA_FONT_9.png)|
-|10|CaptchaFont.CAPTCHA_FONT_10|否|![Image](sample/image/CAPTCHA_FONT_10.png)|
-|11|CaptchaFont.CAPTCHA_FONT_11|是|![Image](sample/image/CAPTCHA_FONT_11.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_11.png)|
-|12|CaptchaFont.CAPTCHA_FONT_12|是|![Image](sample/image/CAPTCHA_FONT_12.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_12.png)|
-|13|CaptchaFont.CAPTCHA_FONT_13|是|![Image](sample/image/CAPTCHA_FONT_13.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_13.png)|
-|14|CaptchaFont.CAPTCHA_FONT_14|是|![Image](sample/image/CAPTCHA_FONT_14.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_14.png)|
-|15|CaptchaFont.CAPTCHA_FONT_15|是|![Image](sample/image/CAPTCHA_FONT_15.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_15.png)|
-|16|CaptchaFont.CAPTCHA_FONT_16|是|![Image](sample/image/CAPTCHA_FONT_16.png)&nbsp;![Image](sample/image/ZH_CAPTCHA_FONT_16.png)|
-|17|CaptchaFont.CAPTCHA_FONT_17|否|![Image](sample/image/CAPTCHA_FONT_17.png)|
-|18|CaptchaFont.CAPTCHA_FONT_18|否|![Image](sample/image/CAPTCHA_FONT_18.png)|
-|19|CaptchaFont.CAPTCHA_FONT_19|否|![Image](sample/image/CAPTCHA_FONT_19.png)|
-|20|CaptchaFont.CAPTCHA_FONT_20|否|![Image](sample/image/CAPTCHA_FONT_20.png)|
-|21|CaptchaFont.CAPTCHA_FONT_21|否|![Image](sample/image/CAPTCHA_FONT_21.png)|
+|序号 |字体 |样例 |
+|----------|-----------|---------------------------|
+|1|CaptchaFont.CAPTCHA_FONT_1|![Image](sample/image/CAPTCHA_FONT_1.png)|
+|2|CaptchaFont.CAPTCHA_FONT_2|![Image](sample/image/CAPTCHA_FONT_2.png)|
+|3|CaptchaFont.CAPTCHA_FONT_3|![Image](sample/image/CAPTCHA_FONT_3.png)|
+|4|CaptchaFont.CAPTCHA_FONT_4|![Image](sample/image/CAPTCHA_FONT_4.png)|
+|5|CaptchaFont.CAPTCHA_FONT_5|![Image](sample/image/CAPTCHA_FONT_5.png)|
+|6|CaptchaFont.CAPTCHA_FONT_6|![Image](sample/image/CAPTCHA_FONT_6.png)|
+|7|CaptchaFont.CAPTCHA_FONT_7|![Image](sample/image/CAPTCHA_FONT_7.png)|
+|8|CaptchaFont.CAPTCHA_FONT_8|![Image](sample/image/CAPTCHA_FONT_8.png)|
+|9|CaptchaFont.CAPTCHA_FONT_9|![Image](sample/image/CAPTCHA_FONT_9.png)|
+|10|CaptchaFont.CAPTCHA_FONT_10|![Image](sample/image/CAPTCHA_FONT_10.png)|
+|11|CaptchaFont.CAPTCHA_FONT_17|![Image](sample/image/CAPTCHA_FONT_17.png)|
+|12|CaptchaFont.CAPTCHA_FONT_18|![Image](sample/image/CAPTCHA_FONT_18.png)|
+|13|CaptchaFont.CAPTCHA_FONT_19|![Image](sample/image/CAPTCHA_FONT_19.png)|
+|14|CaptchaFont.CAPTCHA_FONT_20|![Image](sample/image/CAPTCHA_FONT_20.png)|
+|15|CaptchaFont.CAPTCHA_FONT_21|![Image](sample/image/CAPTCHA_FONT_21.png)|
 
 备注:字体大小可调,获取自定义字体(Font font = CaptchaFont.getFont(CaptchaFont.CAPTCHA_FONT_1, Font.BOLD, 35);)
-
-注意:自定义字体建议使用Spring容器注入或单例方式,防止字体文件过大影响性能
+以上字体只支持数字字母以及部分特殊符号。/sample/font文件中有部分支持常用中文字体,可通过CaptchaFont.getFont(InputStream, Font.BOLD, 35);进行创建
