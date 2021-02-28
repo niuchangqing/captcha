@@ -36,8 +36,7 @@ public final class WavUtil {
                 audio = AudioSystem.getAudioInputStream(new BufferedInputStream(inputStream));
             }catch (Exception e) {
                 //异常为UnsupportedAudioFileException.class和IOException.class
-                e.printStackTrace();
-                throw new CaptchaException(e.getMessage());
+                throw new CaptchaException(e);
             }
             if (audioInputStream == null) {
                 audioInputStream = new AudioInputStream(inputStream,audio.getFormat(),audio.getFrameLength());
@@ -49,11 +48,14 @@ public final class WavUtil {
         try {
             AudioSystem.write(audioInputStream,AudioFileFormat.Type.WAVE,baos);
             baos.close();
+            return baos.toByteArray();
         }catch (IOException e) {
-            e.printStackTrace();
-            throw new CaptchaException(e.getMessage());
+            throw new CaptchaException(e);
+        }finally {
+            //关闭
+            IOUtil.close(baos);
+            IOUtil.close(audioInputStream);
         }
-        return baos.toByteArray();
     }
 
     /**

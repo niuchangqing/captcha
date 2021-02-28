@@ -1,10 +1,14 @@
 package org.ncq.captcha.domain;
 
+import java.io.Serializable;
+
 /**
  * @author niuchangqing
  * 随机生成运算字符串结果
  */
-public class CalculationResultDTO {
+public class CalculationResultDTO implements Serializable {
+
+    private static final long serialVersionUID = -3918308711448484716L;
     /**
      * 运算字符串
      * 如：1 + 3 = ？

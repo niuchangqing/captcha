@@ -3,8 +3,11 @@ package org.ncq.captcha.audio;
 import org.ncq.captcha.enums.ILanguage;
 import org.ncq.captcha.enums.LanguageEnum;
 import org.ncq.captcha.exception.CaptchaException;
+import org.ncq.captcha.utils.AudioCaptchaUtil;
+import org.ncq.captcha.utils.IOUtil;
 import org.ncq.captcha.utils.WavUtil;
 
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Base64;
 import java.util.List;
@@ -24,19 +27,27 @@ public abstract class AbstractAudioCaptcha implements IAudioCaptcha {
      * 生成音频的前缀音频文件
      * prefix + code
      */
-    protected InputStream prefix;
+    protected byte[] prefix;
 
     /**
      * 生成音频的后缀音频文件
      * code + suffix
      */
-    protected InputStream suffix;
+    protected byte[] suffix;
 
     public AbstractAudioCaptcha(ILanguage language) {
         this.language = language == null ? LanguageEnum.ZH : language;
+        String prefixPath = "/audio/" + language.getName() + "/prefix.wav";
+        InputStream prefixStream = AudioCaptchaUtil.class.getResourceAsStream(prefixPath.toLowerCase());
+        this.prefix = IOUtil.toByteArray(prefixStream);
+        String suffixPath = "/audio/" + language.getName() + "/suffix.wav";
+        InputStream suffixStream = AudioCaptchaUtil.class.getResourceAsStream(suffixPath.toLowerCase());
+        this.suffix = IOUtil.toByteArray(suffixStream);
+        IOUtil.close(prefixStream);
+        IOUtil.close(suffixStream);
     }
 
-    public AbstractAudioCaptcha(ILanguage language, InputStream prefix, InputStream suffix){
+    public AbstractAudioCaptcha(ILanguage language, byte[] prefix, byte[] suffix){
         this.language = language == null ? LanguageEnum.ZH : language;;
         this.prefix = prefix;
         this.suffix = suffix;
@@ -52,13 +63,15 @@ public abstract class AbstractAudioCaptcha implements IAudioCaptcha {
         list.add(0,getBlank());
         //验证码前置音频文件不为空
         if (prefix != null) {
-            list.add(1,prefix);
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(prefix);
+            list.add(1,inputStream);
             list.add(2,getBlank());
         }
         //验证码后置音频文件不为空
         if (suffix != null) {
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(suffix);
             list.add(getBlank());
-            list.add(suffix);
+            list.add(inputStream);
         }
         byte[] merge = WavUtil.merge(list);
         return merge;

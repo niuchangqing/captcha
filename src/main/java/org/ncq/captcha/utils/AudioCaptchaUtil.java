@@ -53,7 +53,7 @@ public class AudioCaptchaUtil {
      * </p>
      * @return                  base64Data字符串
      */
-    public static String getAudioBase64Data(String code, ILanguage language, InputStream prefix, InputStream suffix){
+    public static String getAudioBase64Data(String code, ILanguage language, byte[] prefix, byte[] suffix){
         IAudioCaptcha audioCaptcha = new DefaultAudioCaptcha(language, prefix, suffix);
         return audioCaptcha.getAudioBase64Data(code);
     }
@@ -93,7 +93,7 @@ public class AudioCaptchaUtil {
      * </p>
      * @return                  base64字符串
      */
-    public static String getAudioBase64(String code, ILanguage language, InputStream prefix, InputStream suffix){
+    public static String getAudioBase64(String code, ILanguage language, byte[] prefix, byte[] suffix){
         IAudioCaptcha audioCaptcha = new DefaultAudioCaptcha(language, prefix, suffix);
         return audioCaptcha.getAudioBase64(code);
     }
@@ -133,7 +133,7 @@ public class AudioCaptchaUtil {
      * </p>
      * @return                  byte[]
      */
-    public static byte[] getAudioBytes(String code, ILanguage language, InputStream prefix, InputStream suffix){
+    public static byte[] getAudioBytes(String code, ILanguage language, byte[] prefix, byte[] suffix){
         IAudioCaptcha audioCaptcha = new DefaultAudioCaptcha(language, prefix, suffix);
         return audioCaptcha.getAudioBytes(code);
     }
@@ -176,10 +176,13 @@ public class AudioCaptchaUtil {
      * @param language          验证码语言类型,可以为空,默认为中文
      * @return                  InputeStream
      */
-    private static InputStream getDefaultPrefixAudio(ILanguage language){
+    private static byte[] getDefaultPrefixAudio(ILanguage language){
         language = language == null ? LanguageEnum.ZH : language;
         String path = "/audio/" + language.getName() + "/prefix.wav";
-        return AudioCaptchaUtil.class.getResourceAsStream(path.toLowerCase());
+        InputStream resourceAsStream = AudioCaptchaUtil.class.getResourceAsStream(path.toLowerCase());
+        byte[] bytes = IOUtil.toByteArray(resourceAsStream);
+        IOUtil.close(resourceAsStream);
+        return bytes;
     }
 
     /**
@@ -187,9 +190,12 @@ public class AudioCaptchaUtil {
      * @param language          语言类型
      * @return                  InputStream
      */
-    private static InputStream getDefaultSuffixAudio(ILanguage language) {
+    private static byte[] getDefaultSuffixAudio(ILanguage language) {
         language = language == null ? LanguageEnum.ZH : language;
         String path = "/audio/" + language.getName() + "/suffix.wav";
-        return AudioCaptchaUtil.class.getResourceAsStream(path.toLowerCase());
+        InputStream resourceAsStream = AudioCaptchaUtil.class.getResourceAsStream(path.toLowerCase());
+        byte[] bytes = IOUtil.toByteArray(resourceAsStream);
+        IOUtil.close(resourceAsStream);
+        return bytes;
     }
 }

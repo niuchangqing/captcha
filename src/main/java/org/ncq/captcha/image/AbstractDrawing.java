@@ -2,6 +2,7 @@ package org.ncq.captcha.image;
 
 import org.ncq.captcha.image.gif.AnimatedGifEncoder;
 import org.ncq.captcha.utils.GraphicsUtil;
+import org.ncq.captcha.utils.IOUtil;
 import org.ncq.captcha.utils.ImageUtil;
 import org.ncq.captcha.utils.RandomUtil;
 
@@ -140,7 +141,11 @@ public abstract class AbstractDrawing implements IImageCaptcha {
             frame.flush();
         }
         gif.finish();
-        return out.toByteArray();
+        try {
+            return out.toByteArray();
+        }finally {
+            IOUtil.close(out);
+        }
     }
 
     @Override
@@ -164,8 +169,13 @@ public abstract class AbstractDrawing implements IImageCaptcha {
     public byte[] getImageBytes(String code) {
         Image image = createImage(code);
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
-        ImageUtil.write(image, ImageUtil.PNG, out);
-        return out.toByteArray();
+        try {
+            ImageUtil.write(image, ImageUtil.PNG, out);
+            return out.toByteArray();
+        }finally {
+            //关闭
+            IOUtil.close(out);
+        }
     }
 
     @Override

@@ -1,6 +1,9 @@
 package org.ncq.captcha.utils;
 
+import org.ncq.captcha.domain.Point;
+
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -51,21 +54,59 @@ public class GraphicsUtil {
         }
         int len = str.length();
         int charWidth = width / len;
-        //设置字体x轴左右偏移量
-        int x = charWidth / 5;
-        //设置字体高度上下偏移量
-        int y = textCenterYHeight / 5;
-        ThreadLocalRandom random = RandomUtil.getRandom();
         for (int i = 0; i < len; i++) {
             if (null == color) {
                 //随机产生字体颜色，不能和图片背景颜色重复
                 graphics.setColor(ImageUtil.randomColor(backgroundColor));
             }
-            int textHeight = textCenterYHeight - random.nextInt(-y,y);
-            int textWidth = i * charWidth + random.nextInt(i == 0 ? 0 : -x,x);
-            graphics.drawString(String.valueOf(str.charAt(i)),textWidth, textHeight);
+            String s = String.valueOf(str.charAt(i));
+            Point point = randomStrPosition(graphics, s, font, charWidth, height);
+            graphics.drawString(s, point.getX() + (charWidth * i), point.getY());
         }
         return graphics;
+    }
+
+    /**
+     * 随机获取字符所在画板的位置
+     * @param graphics          绘笔对象
+     * @param str               将要输入的字符
+     * @param font              字体
+     * @param width             宽度(图片宽度,x轴)
+     * @param height            图片高度(图片高度,y轴)
+     * @return                  [0] = x轴所在位置,[1] = y轴所在位置
+     */
+    public static Point randomStrPosition(Graphics graphics, String str, Font font, int width, int height) {
+        FontMetrics fontMetrics = graphics.getFontMetrics(font);
+        int charWidth = getCharWidth(graphics, str, font);
+        int charHeight = getFontHeight(graphics, font);
+        ThreadLocalRandom random = RandomUtil.getRandom();
+
+        int x = 0;
+        //判断宽度是否小于字体宽度
+        if (width <= charWidth) {
+            x = 0;
+        }else {
+            //随机获取x坐标
+            x = random.nextInt(0,width);
+            //判断字体是否已经超出画板
+            if (x + charWidth > width) {
+                x = width - charWidth;
+            }
+        }
+        int y = 0;
+        //判断高度是否小于字体高度
+        if (height <= charHeight) {
+            //设置居中
+            y = (height - fontMetrics.getHeight()) / 2 + fontMetrics.getAscent();
+        }else {
+            //随机获取y坐标
+            y = random.nextInt(0,height);
+            //判断坐标字体是否已经超出
+            if (y < charHeight) {
+                y = charHeight;
+            }
+        }
+        return new Point(x,y);
     }
 
     /**
@@ -95,5 +136,41 @@ public class GraphicsUtil {
         if (alphaComposite != null) {
             graphics2D.setComposite(alphaComposite);
         }
+    }
+
+    /**
+     * 获取对应字体的一行文本高度
+     * @param graphics          画笔对象
+     * @param font              字体
+     * @return                  字体所占高度
+     */
+    public static int getFontHeight(Graphics graphics, Font font) {
+        FontMetrics fontMetrics = graphics.getFontMetrics(font);
+        return fontMetrics.getHeight();
+    }
+
+    /**
+     * 获取该字符串在对应字体下占用的宽度
+     * @param graphics                  画笔对象
+     * @param str                       对应的字符串
+     * @param font                      字体
+     * @return                          该字符所占用的宽度
+     */
+    public static int getCharWidth(Graphics graphics, String str, Font font){
+        FontMetrics fontMetrics = graphics.getFontMetrics(font);
+        return fontMetrics.stringWidth(str);
+    }
+
+    /**
+     * 获取旋转参数
+     * @param degree        旋转度数,0 ～ 360
+     * @param x             旋转圆心的x轴坐标
+     * @param y             旋转圆心的y轴坐标
+     * @return              旋转参数对象,use = graphics.setTransform(AffineTransform);
+     */
+    public static AffineTransform getRotation(int degree, int x, int y){
+        AffineTransform at = new AffineTransform();
+        at.setToRotation(Math.toRadians(degree),x,y);
+        return at;
     }
 }

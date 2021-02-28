@@ -2,7 +2,11 @@ package org.ncq.captcha.utils;
 
 
 import org.ncq.captcha.domain.CalculationResultDTO;
+import org.ncq.captcha.exception.CaptchaException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -113,6 +117,31 @@ public class RandomUtil {
      */
     public static boolean randomBoolean(){
         return getRandom().nextBoolean();
+    }
+
+    /**
+     * 字符串重新排序
+     * @param length            获取字符串的长度
+     * @param randomStr         取样字符串
+     * @return                  重排序后的字符串
+     */
+    public static String randomRearrange(int length, String randomStr) {
+        if (length > randomStr.length()) {
+            throw new CaptchaException("length cannot be greater than randomStr length");
+        }
+        ThreadLocalRandom random = getRandom();
+        char[] chars = randomStr.toCharArray();
+        List<String> list = new ArrayList<>();
+        for (char c : chars) {
+            list.add(String.valueOf(c));
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int c = random.nextInt(0, list.size());
+            sb.append(list.get(c));
+            list.remove(c);
+        }
+        return sb.toString();
     }
 
     /**

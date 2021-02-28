@@ -14,3 +14,67 @@ repositories {
 dependencies {
 	testCompile group: 'junit', name: 'junit', version: '4.13.1'
 }
+
+//上传maven仓库配置S
+task javadocJar(type: Jar) {
+	classifier = 'javadoc'
+	from javadoc
+}
+
+task sourcesJar(type: Jar) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
+
+artifacts {
+	archives javadocJar, sourcesJar
+}
+signing {
+	sign configurations.archives
+}
+
+uploadArchives {
+	repositories {
+		mavenDeployer {
+			beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+			repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+				authentication(userName: ossrhUsername, password: ossrhPassword)
+			}
+
+			snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+				authentication(userName: ossrhUsername, password: ossrhPassword)
+			}
+
+			pom.project {
+				name 'captcha'
+				packaging 'jar'
+				// optionally artifactId can be defined here
+				description 'A picture/audio verification code generation tool'
+				url 'https://github.com/niuchangqing/captcha'
+
+				scm {
+					connection 'scm:git:github.com:niuchangqing/captcha.git'
+					developerConnection 'scm:git:github.com:niuchangqing/captcha.git'
+					url 'git@github.com:niuchangqing/captcha.git'
+				}
+
+				licenses {
+					license {
+						name 'The Apache License, Version 2.0'
+						url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					}
+				}
+
+				developers {
+					developer {
+						id 'niuchangqing'
+						name 'niuchangqing'
+						email 'ncq1993@188.com'
+					}
+				}
+			}
+		}
+	}
+}
+//上传maven仓库配置E

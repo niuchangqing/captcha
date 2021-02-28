@@ -16,12 +16,9 @@ public class DefaultAudioCaptcha extends AbstractAudioCaptcha {
 
     public DefaultAudioCaptcha(ILanguage language) {
         super(language);
-        //默认给验证码前缀音频和后缀音频
-        this.prefix = DefaultAudioCaptcha.class.getResourceAsStream("/audio/" + language.getName().toLowerCase() + "/prefix.wav");
-        this.suffix = DefaultAudioCaptcha.class.getResourceAsStream("/audio/" + language.getName().toLowerCase() + "/suffix.wav");
     }
 
-    public DefaultAudioCaptcha(ILanguage language, InputStream prefix, InputStream suffix) {
+    public DefaultAudioCaptcha(ILanguage language, byte[] prefix, byte[] suffix) {
         super(language, prefix, suffix);
     }
 

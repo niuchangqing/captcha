@@ -14,4 +14,12 @@ public class CaptchaException extends RuntimeException {
     public CaptchaException(String message) {
         super(message);
     }
+
+    public CaptchaException(String message, Throwable cause){
+        super(message, cause);
+    }
+
+    public CaptchaException(Throwable cause){
+        super(cause);
+    }
 }
